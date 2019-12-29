@@ -4,16 +4,14 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 const Dishdetails = (props) => {
 
     if (props.dish != null) {
-        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-        ]
-        const comments = props.dish.comments.map((cItem) => {
-            const dt = new Date(cItem.date);
 
+        const comments = props.dish.comments.map((cItem) => {
+
+            const formatedDate = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(cItem.date)))
             return (
                 <div key={cItem.id}>
                     <p>{cItem.comment}</p>
-                    <p>--{cItem.author}, {monthNames[dt.getMonth()]} {dt.getDay()} , {dt.getFullYear()}</p>
+                    <p>--{cItem.author}, {formatedDate}</p>
                 </div>
             )
         })
