@@ -1,7 +1,8 @@
-import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrumb } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrumb, Button } from 'reactstrap';
+import SubmitCommentModal from './SubmitCommentsComponent';
 
+import { Link } from 'react-router-dom';
 
 const RenderDish = ({ dish }) => {
     return (
@@ -36,6 +37,12 @@ const RenderComments = ({ comments }) => {
 
 const Dishdetails = (props) => {
 
+    const [toggleModal, settoggleModal] = useState(false)
+
+    const toggleModalHandler = () => {
+        settoggleModal(!toggleModal)
+    }
+
     if (props.dish != null) {
         return (
             <div className="container">
@@ -54,6 +61,10 @@ const Dishdetails = (props) => {
                     </div>
                     <div className="col-12 col-md-5 m-1">
                         <RenderComments comments={props.comments} />
+                        <Button outline onClick={toggleModalHandler}>
+                            <span className="fa fa-pencil fa-lg" /> Submit Comment
+                        </Button>
+                        <SubmitCommentModal showModal={toggleModal} toggle={() => toggleModalHandler()} />
                     </div>
                 </div>
             </div>
