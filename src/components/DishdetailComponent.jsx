@@ -64,7 +64,10 @@ const Dishdetails = (props) => {
                         <Button outline onClick={toggleModalHandler}>
                             <span className="fa fa-pencil fa-lg" /> Submit Comment
                         </Button>
-                        <SubmitCommentModal showModal={toggleModal} toggle={() => toggleModalHandler()} />
+                        <SubmitCommentModal showModal={toggleModal} toggle={() => toggleModalHandler()}
+                            dishId={props.dish.id}
+                            addComment={props.addComment}
+                        />
                     </div>
                 </div>
             </div>

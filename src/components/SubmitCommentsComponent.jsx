@@ -8,8 +8,8 @@ const minLength = (len) => (val) => (val) && (val.length) >= len;
 const SubmitCommentModal = (props) => {
 
     const handleSubmit = (values) => {
-        console.log("Current state is: " + JSON.stringify(values));
-        alert("Current state is: " + JSON.stringify(values));
+        props.toggle();
+        props.addComment(props.dishId, values.rating, values.yourName, values.comment);
     }
 
     return (
