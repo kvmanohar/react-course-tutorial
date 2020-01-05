@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrumb, Button } from 'reactstrap';
 import SubmitCommentModal from './SubmitCommentsComponent';
-
+import { Loading } from './LoadingComponent';
 import { Link } from 'react-router-dom';
 
 const RenderDish = ({ dish }) => {
@@ -43,7 +43,25 @@ const Dishdetails = (props) => {
         settoggleModal(!toggleModal)
     }
 
-    if (props.dish != null) {
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.errMsg) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <h4>{props.errMsg}</h4>
+                </div>
+            </div>
+        );
+    }
+    else if (props.dish != null) {
         return (
             <div className="container">
                 <div className="row">
