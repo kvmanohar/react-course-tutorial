@@ -85,7 +85,7 @@ const Dishdetails = (props) => {
                         </Button>
                         <SubmitCommentModal showModal={toggleModal} toggle={() => toggleModalHandler()}
                             dishId={props.dish.id}
-                            addComment={props.addComment}
+                            postComment={props.postComment}
                         />
                     </div>
                 </div>

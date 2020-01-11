@@ -9,7 +9,7 @@ const SubmitCommentModal = (props) => {
 
     const handleSubmit = (values) => {
         props.toggle();
-        props.addComment(props.dishId, values.rating, values.yourName, values.comment);
+        props.postComment(props.dishId, values.rating, values.yourName, values.comment);
     }
 
     return (
