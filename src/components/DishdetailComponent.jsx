@@ -3,11 +3,12 @@ import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrum
 import SubmitCommentModal from './SubmitCommentsComponent';
 import { Loading } from './LoadingComponent';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 
 const RenderDish = ({ dish }) => {
     return (
         <Card>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
             <CardBody>
                 <CardTitle>{dish.name}</CardTitle>
                 <CardText>{dish.description}</CardText>
